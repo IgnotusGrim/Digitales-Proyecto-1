@@ -34,10 +34,10 @@ Estado1
 			LDR DIR, =EWR
 			STR VS, [DIR]
 			
-			LDR DIR, =NSPR
+			LDR DIR, =NSPV
 			STR VS, [DIR]
 			
-			LDR DIR, =EWPV
+			LDR DIR, =EWPR
 			STR VS, [DIR]
 			
 			MOV VS, #0
@@ -53,10 +53,10 @@ Estado1
 			LDR DIR, =EWV
 			STR VS, [DIR]
 			
-			LDR DIR, =NSPV
+			LDR DIR, =NSPR
 			STR VS, [DIR]
 			
-			LDR DIR, =EWPR
+			LDR DIR, =EWPV
 			STR VS, [DIR]
 			
 			MOV TIME, #54000
@@ -80,39 +80,81 @@ Estado2
 			LDR DIR, =NSV
 			STR VS, [DIR]
 			
-			MOV TIME, #24000
+			MOV TIME, #5000
 			MOV COUNTER, #0 
 			BL	CONTADOR
 			MOV COUNTER, #0 
 			BL	CONTADOR
-			
-
-
-Estado3
-			MOV VS, #1
-			LDR DIR, =NSR
-			STR VS, [DIR]
-			
-			LDR DIR, =EWV
-			STR VS, [DIR]
-			
-			LDR DIR, =NSPV
-			STR VS, [DIR]
-			
-			LDR DIR, =EWPR
-			STR VS, [DIR]
 			
 			MOV VS, #0
 			LDR DIR, =NSA
 			STR VS, [DIR]
 			
-			LDR DIR, =EWR
+			MOV TIME, #5000
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+			MOV VS, #1
+			LDR DIR, =NSA
+			STR VS, [DIR]
+			
+			MOV TIME, #5000
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+			MOV VS, #0
+			LDR DIR, =NSA
+			STR VS, [DIR]
+			
+			MOV TIME, #5000
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+			MOV VS, #1
+			LDR DIR, =NSA
+			STR VS, [DIR]
+			
+			MOV TIME, #5000
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+			
+
+
+Estado3
+			MOV VS, #1
+			
+			LDR DIR, =EWV
+			STR VS, [DIR]
+			
+			LDR DIR, =NSR
 			STR VS, [DIR]
 			
 			LDR DIR, =NSPR
 			STR VS, [DIR]
 			
 			LDR DIR, =EWPV
+			STR VS, [DIR]
+			
+			MOV VS, #0
+			LDR DIR, =EWR
+			STR VS, [DIR]
+			
+			LDR DIR, =NSA
+			STR VS, [DIR]
+			
+			LDR DIR, =NSPV
+			STR VS, [DIR]
+			
+			LDR DIR, =EWPR
 			STR VS, [DIR]
 			
 			MOV TIME, #54000
@@ -123,9 +165,66 @@ Estado3
 			MOV COUNTER, #0 
 			BL	CONTADOR 
 			MOV COUNTER, #0 
-			BL	CONTADOR 			
+			BL	CONTADOR
+
+Estado4 
+		
+			MOV VS, #1
+			LDR DIR, =EWA
+			STR VS, [DIR]
 			
-			MOV r0,#0
+			MOV VS, #0
+			LDR DIR, =EWV
+			STR VS, [DIR]
+			
+			MOV TIME, #5000
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+			MOV VS, #0
+			LDR DIR, =EWA
+			STR VS, [DIR]
+			
+			MOV TIME, #5000
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+			MOV VS, #1
+			LDR DIR, =EWA
+			STR VS, [DIR]
+			
+			MOV TIME, #5000
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+			MOV VS, #0
+			LDR DIR, =EWA
+			STR VS, [DIR]
+			
+			MOV TIME, #5000
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+			MOV VS, #1
+			LDR DIR, =EWA
+			STR VS, [DIR]
+			
+			MOV TIME, #5000
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+			B Estado1
+
 CONTADOR
 			CMP	COUNTER, TIME
 			BEQ BREAK
