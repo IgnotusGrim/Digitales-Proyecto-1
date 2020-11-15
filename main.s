@@ -59,32 +59,38 @@ Estado1
 			LDR DIR, =EWPR
 			STR VS, [DIR]
 			
-			MOV TIME, #159994
+			MOV TIME, #54000
 			MOV COUNTER, #0 
-			BL	CONTADOR ;25 ciclos
+			BL	CONTADOR 
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			
+			
 
 Estado2
 			MOV VS, #1
-			LDR DIR, =NSV
-			STR VS, [DIR]
-			
-			LDR DIR, =EWR
-			STR VS, [DIR]
-			
-			LDR DIR, =NSPR
-			STR VS, [DIR]
-			
-			LDR DIR, =EWPV
-			STR VS, [DIR]
-			
-			MOV VS, #0
 			LDR DIR, =NSA
 			STR VS, [DIR]
 			
-			LDR DIR, =NSR
+			MOV VS, #0
+			LDR DIR, =NSV
 			STR VS, [DIR]
 			
-			LDR DIR, =EWA
+			MOV TIME, #24000
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			MOV COUNTER, #0 
+			BL	CONTADOR
+			
+
+
+Estado3
+			MOV VS, #1
+			LDR DIR, =NSR
 			STR VS, [DIR]
 			
 			LDR DIR, =EWV
@@ -96,11 +102,30 @@ Estado2
 			LDR DIR, =EWPR
 			STR VS, [DIR]
 			
-			MOV TIME, #159994
-			MOV COUNTER, #0
+			MOV VS, #0
+			LDR DIR, =NSA
+			STR VS, [DIR]
+			
+			LDR DIR, =EWR
+			STR VS, [DIR]
+			
+			LDR DIR, =NSPR
+			STR VS, [DIR]
+			
+			LDR DIR, =EWPV
+			STR VS, [DIR]
+			
+			MOV TIME, #54000
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			MOV COUNTER, #0 
 			BL	CONTADOR
+			MOV COUNTER, #0 
+			BL	CONTADOR 
+			MOV COUNTER, #0 
+			BL	CONTADOR 			
 			
-			
+			MOV r0,#0
 CONTADOR
 			CMP	COUNTER, TIME
 			BEQ BREAK
@@ -109,4 +134,4 @@ CONTADOR
 BREAK
 			BX LR
 			
-END
+			END
