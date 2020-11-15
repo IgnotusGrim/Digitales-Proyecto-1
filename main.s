@@ -1,0 +1,112 @@
+
+NSV			EQU		0x20000000
+NSA			EQU		0x20000004	
+NSR			EQU		0x20000008
+EWV			EQU		0x2000000C
+EWA			EQU		0x20000010
+EWR			EQU		0x20000014
+NSPV		EQU		0x20000018
+NSPR		EQU		0x2000001C
+EWPV		EQU		0x20000020
+EWPR		EQU		0x20000024
+	
+COUNTER		RN 		r0
+st			RN		r1
+VS			RN		r2
+PS			RN		r3
+DIR			RN		r4
+TIME		RN		r5
+
+	
+			AREA Main, CODE, READONLY
+			ENTRY
+			EXPORT __main
+
+__main
+
+
+
+Estado1
+			MOV VS, #1
+			LDR DIR, =NSV
+			STR VS, [DIR]
+			
+			LDR DIR, =EWR
+			STR VS, [DIR]
+			
+			LDR DIR, =NSPR
+			STR VS, [DIR]
+			
+			LDR DIR, =EWPV
+			STR VS, [DIR]
+			
+			MOV VS, #0
+			LDR DIR, =NSA
+			STR VS, [DIR]
+			
+			LDR DIR, =NSR
+			STR VS, [DIR]
+			
+			LDR DIR, =EWA
+			STR VS, [DIR]
+			
+			LDR DIR, =EWV
+			STR VS, [DIR]
+			
+			LDR DIR, =NSPV
+			STR VS, [DIR]
+			
+			LDR DIR, =EWPR
+			STR VS, [DIR]
+			
+			MOV TIME, #159994
+			MOV COUNTER, #0 
+			BL	CONTADOR ;25 ciclos
+
+Estado2
+			MOV VS, #1
+			LDR DIR, =NSV
+			STR VS, [DIR]
+			
+			LDR DIR, =EWR
+			STR VS, [DIR]
+			
+			LDR DIR, =NSPR
+			STR VS, [DIR]
+			
+			LDR DIR, =EWPV
+			STR VS, [DIR]
+			
+			MOV VS, #0
+			LDR DIR, =NSA
+			STR VS, [DIR]
+			
+			LDR DIR, =NSR
+			STR VS, [DIR]
+			
+			LDR DIR, =EWA
+			STR VS, [DIR]
+			
+			LDR DIR, =EWV
+			STR VS, [DIR]
+			
+			LDR DIR, =NSPV
+			STR VS, [DIR]
+			
+			LDR DIR, =EWPR
+			STR VS, [DIR]
+			
+			MOV TIME, #159994
+			MOV COUNTER, #0
+			BL	CONTADOR
+			
+			
+CONTADOR
+			CMP	COUNTER, TIME
+			BEQ BREAK
+			ADD COUNTER, COUNTER, #1
+			B	CONTADOR
+BREAK
+			BX LR
+			
+END
